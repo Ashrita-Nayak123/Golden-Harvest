@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f5f5f5;
+}
+
+h2 {
+    text-align: center;
+    color:  #5A1F2B;
+    font-size:35px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns:repeat(5,1fr);
+    justify-content: center;
+    gap: 25px;
+    margin-left:55px;
+    padding: 20px;
+}
+
+.product {
+    width: 180px;
+    background: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px #bbb;
+}
+
+.product img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product h3 {
+    color: #5C4033;
+}
+.price {
+     color:#7A263A;
+    font-weight: bold;
+}
+
+
+/* BUTTONS */
+
+        button {
+            border: none;
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 5px;
+            font-weight: bold;
+        }
+
+        .cart-btn {
+            background:  #5a3744;
+            color: white;
+        }
+
+       
+        button:hover {
+            opacity: 0.85;
+        }
+
+
+
+
+/* MOBILE */
+
+@media screen and (max-width: 700px) {
+
+    .products {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .navbar a {
+        margin: 0 7px;
+        font-size: 11px;
+    }
+
+    .header h1 {
+        font-size: 21px;
+    }
+
+}
+
+
+
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Personl Care🧴</h2>
+
+<div class="products">
+
+    <div class="product">
+        <img src="shampoo.jpeg">
+        <h3>Shampoo</h3>
+        <p class="price">₹120 / 180 ml</p>
+         <button
+            class="cart-btn"
+            onclick="addToCart('Shampoo',120)">
+
+            Add to Cart
+
+        </button>
+
+    </div>
+
+    <div class="product">
+        <img src="paste.jpeg">
+        <h3>Tooth Paste</h3>
+        <p  class="price">₹110 / 150 g</p>
+        
+    <button
+            class="cart-btn"
+            onclick="addToCart('Tooth Paste',110)">
+
+            Add to Cart
+
+        </button>
+
+    </div>
+
+    <div class="product">
+        <img src="hairoil.jpeg">
+        <h3>Hair Oil</h3>
+        <p  class="price">₹140 / 200 ml</p>
+         <button
+            class="cart-btn"
+            onclick="addToCart('Hair oil',140)">
+
+            Add to Cart
+
+        </button>
+
+    </div>
+
+      <div class="product">
+        <img src="blotion.jpeg">
+        <h3>Body Lotion</h3>
+        <p  class="price">₹180 / 200 ml</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Body lotion',180)">
+
+            Add to Cart
+
+        </button>
+    </div>
+
+
+     <div class="product">
+        <img src="moisti.jpeg">
+        <h3>Moisturizer</h3>
+        <p  class="price">₹160 / 100 ml</p>
+         <button
+            class="cart-btn"
+            onclick="addToCart('Moisturizer',160)">
+
+            Add to Cart
+
+        </button>
+    </div>
+
+
+     <div class="product">
+        <img src="facewash.jpeg">
+        <h3>Face Wash</h3>
+        <p  class="price">₹150 / 100 ml</p>
+       <button
+            class="cart-btn"
+            onclick="addToCart('Face wash',150)">
+
+            Add to Cart
+
+        </button>
+
+            </div>
+
+
+     <div class="product">
+        <img src="brush.jpeg">
+        <h3>Tooth Brush</h3>
+        <p  class="price">₹40 / 1 piece</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Tooth brush',40)">
+
+            Add to Cart
+
+        </button>
+    </div>
+
+
+     <div class="product">
+        <img src="conditioner.jpeg">
+        <h3>Conditioner</h3>
+        <p  class="price">₹150 / 180 ml</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Conditioner',150)">
+
+            Add to Cart
+
+        </button>
+    </div>
+
+
+    <div class="product">
+        <img src="hwash.jpeg">
+        <h3>Hand wash</h3>
+        <p  class="price">₹100 / 250 ml</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Hand wash',100)">
+
+            Add to Cart
+
+        </button>
+    </div>
+    
+   
+    <div class="product">
+        <img src="sunscreen.jpeg">
+        <h3>Sunscreen</h3>
+        <p  class="price">₹250 / 50 g</p>
+       <button
+            class="cart-btn"
+            onclick="addToCart('Sunscreen',250)">
+
+            Add to Cart
+
+        </button>
+    </div>
+
+
+
+
+</div>
+
+
+
+
+<script>
+
+/* ADD TO CART */
+
+function addToCart(name,price){
+
+
+
+let cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
+
+
+
+
+         let existing =
+        cart.find(function(item) {
+            return item.name === name;
+        });
+
+
+    if (existing) {
+
+        existing.quantity++;
+
+    }
+
+    else {
+
+        cart.push({
+
+            name: name,
+            price: price,
+            quantity: 1
+
+        });
+
+    }
+
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart));
+
+    
+
+
+   alert(name + "  added to cart successfully !");
+
+   window.location.href="cart.html";
+ }
+
+
+
+
+
+/* ORDER NOW */
+
+function orderNow(name, price) {
+
+    addToCart(name, price);
+
+    window.location.href =
+        "Cart.html";
+
+}
+
+
+
+/* CART COUNT */
+
+function updateCartCount() {
+
+    let count = 0;
+
+
+    cart.forEach(function(item) {
+
+        count += item.quantity;
+
+    });
+
+
+    document.getElementById("cartCount").innerText =
+        count;
+
+}
+
+
+updateCartCount();
+
+</script>
+
+</body>
+</html>

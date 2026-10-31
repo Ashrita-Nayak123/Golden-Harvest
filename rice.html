@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f5f5f5;
+}
+
+h2 {
+    text-align: center;
+    color: #5A1F2B;
+    font-size:35px;
+}
+
+.products {
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    margin-left:55px;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px;
+}
+
+.product {
+    width: 180px;
+    background: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px #bbb;
+}
+
+.product img {
+    width: 150px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product h3 {
+    color:  #5C4033;
+}
+.price {
+     color:#7A263A;
+    font-weight: bold;
+}
+
+ /* BUTTONS */
+
+        button {
+            border: none;
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 5px;
+            font-weight: bold;
+        }
+
+        .cart-btn {
+            background: #5a3744;
+            color: white;
+        }
+
+       
+        button:hover {
+            opacity: 0.85;
+        }
+
+
+/* MOBILE */
+
+@media screen and (max-width: 700px) {
+
+    .products {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .navbar a {
+        margin: 0 7px;
+        font-size: 11px;
+    }
+
+    .header h1 {
+        font-size: 21px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>🍚 Rice & Grains</h2>
+
+<div class="products">
+
+    <div class="product">
+        <img src="rice.jpeg">
+        <h3>Premium Rice</h3>
+        <p class ="price">₹80 / kg</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Premium rice',80)">
+
+            Add to Cart
+
+        </button>
+
+       
+
+    </div>
+
+    <div class="product">
+        <img src="wheat.jpeg">
+        <h3>Wheat</h3>
+        <p class ="price">₹55 / kg</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Wheat',55)">
+
+            Add to Cart
+
+        </button>
+
+        
+
+    </div>
+
+    
+    <div class="product">
+        <img src="maida.jpeg">
+        <h3>Maida</h3>
+        <p class ="price">₹45 / kg</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Maida',45)">
+
+            Add to Cart
+
+        </button>
+
+        
+
+    </div>
+ 
+    
+    <div class="product">
+        <img src="ragi.jpeg">
+        <h3>Ragi</h3>
+        <p class ="price">₹70 / kg</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Ragi',70)">
+
+            Add to Cart
+
+        </button>
+
+        
+
+    </div>
+
+    
+    <div class="product">
+        <img src="corn.jpeg">
+        <h3>Corn</h3>
+        <p class ="price">₹60 / kg</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Corn',60)">
+
+            Add to Cart
+
+        </button>
+
+        
+    </div>
+
+     
+    <div class="product">
+        <img src="rava.jpeg">
+        <h3>Rava</h3>
+        <p class ="price">₹50 / kg</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Rava',50)">
+
+            Add to Cart
+
+        </button>
+
+        
+
+    </div>
+
+    
+    <div class="product">
+        <img src="moongdal.jpeg">
+        <h3>Moong Dal</h3>
+        <p class ="price">₹120 / kg</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Moong Dal',120)">
+
+            Add to Cart
+
+        </button>
+
+        
+
+    </div>
+    
+    <div class="product">
+        <img src="wheatflour.jpeg">
+        <h3>Wheat Flour</h3>
+        <p class ="price">₹55 / kg</p>
+       <button
+            class="cart-btn"
+            onclick="addToCart('Wheat Flour',55)">
+
+            Add to Cart
+
+        </button>
+
+        
+    </div>
+ 
+     
+    <div class="product">
+        <img src="quinoa.jpeg">
+        <h3>Quinoa</h3>
+        <p class ="price">₹180 / kg</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Quinoa',180)">
+
+            Add to Cart
+
+        </button>
+
+        </div>
+
+    <div class="product">
+        <img src="idlirice.jpeg">
+        <h3>Idli Rice</h3>
+        <p class ="price">₹65 / kg</p>
+       <button
+            class="cart-btn"
+            onclick="addToCart('Idli Rice',65)">
+
+            Add to Cart
+
+        </button>
+
+            </div>
+   
+ </div>
+ 
+
+
+
+<script>
+/* ADD TO CART */
+
+function addToCart(name,price){
+
+
+
+let cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
+
+
+
+
+         let existing =
+        cart.find(function(item) {
+            return item.name === name;
+        });
+
+
+    if (existing) {
+
+        existing.quantity++;
+
+    }
+
+    else {
+
+        cart.push({
+
+            name: name,
+            price: price,
+            quantity: 1
+
+        });
+
+    }
+
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart));
+
+    
+
+
+   alert(name + "  added to cart successfully !");
+
+   window.location.href="cart.html";
+ }
+
+
+
+
+
+
+/* ORDER NOW */
+
+function orderNow(name, price) {
+
+    addToCart(name, price);
+
+    window.location.href =
+        "Cart.html";
+
+}
+
+
+
+/* CART COUNT */
+
+function updateCartCount() {
+
+    let count = 0;
+
+
+    cart.forEach(function(item) {
+
+        count += item.quantity;
+
+    });
+
+
+    document.getElementById("cartCount").innerText =
+        count;
+
+}
+
+
+updateCartCount();
+
+</script>
+
+
+</body>
+</html>

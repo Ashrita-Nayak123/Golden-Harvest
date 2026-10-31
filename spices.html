@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial;
+    background-color: #f5f5f5;
+}
+
+h2 {
+    text-align: center;
+    color: #5A1F2B;
+    font-size:35px;
+}
+
+.products {
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    margin-left:55px;
+}
+
+.product {
+    width: 180px;
+    background-color: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px #bbb;
+}
+
+.product img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product h3 {
+    color: #5C4033;
+}
+
+.price {
+     color:#7A263A;
+    font-weight: bold;
+}
+
+/* BUTTONS */
+
+        button {
+            border: none;
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 5px;
+            font-weight: bold;
+        }
+
+        .cart-btn {
+            background: #5a3744;
+            color: white;
+        }
+
+        
+        button:hover {
+            opacity: 0.85;
+        }
+
+
+/* MOBILE */
+
+@media screen and (max-width: 700px) {
+
+    .products {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .navbar a {
+        margin: 0 7px;
+        font-size: 11px;
+    }
+
+    .header h1 {
+        font-size: 21px;
+    }
+
+}
+
+
+
+</style>
+
+</head>
+
+<body>
+
+<h2>🧂Spices & Masala</h2>
+
+<div class="products">
+
+    <div class="product">
+        <img src="salt.jpeg">
+        <h3>Salt</h3>
+        <p class="price">₹25 / 1 kg</p>
+         <button
+            class="cart-btn"
+            onclick="addToCart('Salt',25)">
+
+            Add to Cart
+
+        </button>
+
+       
+
+    </div>
+
+    <div class="product">
+        <img src="sugar.jpeg">
+        <h3>Sugar</h3>
+        <p class="price">₹50 / 1 kg </p>
+         <button
+            class="cart-btn"
+            onclick="addToCart('Sugar',50)">
+
+            Add to Cart
+
+        </button>
+
+          </div>
+
+    <div class="product">
+        <img src="redchilli.jpeg">
+        <h3>Red Chilli</h3>
+        <p class="price">₹70 / 200 g</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Red Chilli',70)">
+
+            Add to Cart
+
+        </button>
+
+           </div>
+
+    <div class="product">
+        <img src="coriander.jpeg">
+        <h3>Coriander Powder</h3>
+        <p class="price">₹55 / 200 g</p>
+         <button
+            class="cart-btn"
+            onclick="addToCart('Coriander Powder',55)">
+
+            Add to Cart
+
+        </button>
+
+       
+    </div>
+
+    <div class="product">
+        <img src="garam.jpeg">
+        <h3>Garam Masala</h3>
+        <p class="price">₹75 / 100 g</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Garam Masala',75)">
+
+            Add to Cart
+
+        </button>
+
+        
+    </div>
+    
+     <div class="product">
+        <img src="cumin.jpeg">
+        <h3>Cumin Seeds</h3>
+        <p class="price">₹50 / 100 g</p>
+         <button
+            class="cart-btn"
+            onclick="addToCart('Cumin Seeds',50)">
+
+            Add to Cart
+
+        </button>
+
+           </div>
+   
+     <div class="product">
+        <img src="pepper.jpeg">
+        <h3>Black Pepper</h3>
+        <p class="price">₹90 / 100 g</p>
+         <button
+            class="cart-btn"
+            onclick="addToCart('Black Pepper',90)">
+
+            Add to Cart
+
+        </button>
+
+           </div>
+
+     <div class="product">
+        <img src="mustard.jpeg">
+        <h3>Mustard Seeds</h3>
+        <p class="price">₹25 / 100 g</p>
+         <button
+            class="cart-btn"
+            onclick="addToCart('Mustard seeds',25)">
+
+            Add to Cart
+
+        </button>
+
+    </div>
+
+     <div class="product">
+        <img src="turmeric.jpeg">
+        <h3>Turmeric Powder</h3>
+        <p class="price">₹55 / 200 g</p>
+         <button
+            class="cart-btn"
+            onclick="addToCart('Turmeric Powder',55)">
+
+            Add to Cart
+
+        </button>
+
+           </div>
+
+     <div class="product">
+        <img src="chickenmasala.jpeg">
+        <h3>Chicken Masala</h3>
+        <p class="price">₹65 / 100 g</p>
+         <button
+            class="cart-btn"
+            onclick="addToCart('Chicken Masala',55)">
+
+            Add to Cart
+
+        </button>
+
+           </div>
+    
+
+</div>
+<script>
+
+/* ADD TO CART */
+
+function addToCart(name,price){
+
+
+
+let cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
+
+
+
+
+         let existing =
+        cart.find(function(item) {
+            return item.name === name;
+        });
+
+
+    if (existing) {
+
+        existing.quantity++;
+
+    }
+
+    else {
+
+        cart.push({
+
+            name: name,
+            price: price,
+            quantity: 1
+
+        });
+
+    }
+
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart));
+
+    
+
+
+   alert(name + "  added to cart successfully !");
+
+   window.location.href="cart.html";
+ }
+
+
+
+
+
+
+/* ORDER NOW */
+
+function orderNow(name, price) {
+
+    addToCart(name, price);
+
+    window.location.href =
+        "Cart.html";
+
+}
+
+
+
+/* CART COUNT */
+
+function updateCartCount() {
+
+    let count = 0;
+
+
+    cart.forEach(function(item) {
+
+        count += item.quantity;
+
+    });
+
+
+    document.getElementById("cartCount").innerText =
+        count;
+
+}
+
+
+updateCartCount();
+
+</script>
+
+
+</body>
+</html>

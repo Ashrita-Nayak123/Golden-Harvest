@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f5f5f5;
+}
+
+h2 {
+    text-align: center;
+    color:#5A1F2B;
+    font-size:35px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns:repeat(5,1fr);
+    margin-left:55px;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px;
+}
+
+.product {
+    width: 180px;
+    background: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px #bbb;
+}
+
+.product img {
+    width: 150px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product h3 {
+    color: #5C4033;
+}
+.price {
+     color:#7A263A;
+    font-weight: bold;
+}
+ /* BUTTONS */
+
+        button {
+            border: none;
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 5px;
+            font-weight: bold;
+        }
+
+        .cart-btn {
+            background: #5a3744;
+            color: white;
+        }
+
+        
+        button:hover {
+            opacity: 0.85;
+        }
+
+
+
+
+/* MOBILE */
+
+@media screen and (max-width: 700px) {
+
+    .products {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .navbar a {
+        margin: 0 7px;
+        font-size: 11px;
+    }
+
+    .header h1 {
+        font-size: 21px;
+    }
+
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<h2>🍪 Snacks</h2>
+
+<div class="products">
+
+    <div class="product">
+        <img src="biscuits.jpeg">
+        <h3>Biscuits</h3>
+        <p class="price">₹20 / 100 g</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Biscuits',20)">
+
+            Add to Cart
+
+        </button>
+
+            </div>
+
+    <div class="product">
+        <img src="laysss.jpeg">
+        <h3>Chips</h3>
+        <p class="price">₹20 / 50 g</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Chips',20)">
+
+            Add to Cart
+
+        </button>
+
+        </div>
+
+
+    <div class="product">
+        <img src="SILK.jpeg">
+        <h3>Chocolate</h3>
+        <p class="price">₹40 / 50 g</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Chocolate',40)">
+
+            Add to Cart
+
+        </button>
+
+            </div>
+
+    <div class="product">
+        <img src="popcorn.jpeg">
+        <h3>Popcorn</h3>
+        <p class="price">₹20 / 50 g</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Popcorn',20)">
+
+            Add to Cart
+
+        </button>
+
+       
+    </div>
+
+     <div class="product">
+        <img src="namkeen.jpeg">
+        <h3>Namkeen</h3>
+        <p class="price">₹30 / 100 g</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Namkeen',30)">
+
+            Add to Cart
+
+        </button>
+
+        
+    </div>
+
+     <div class="product">
+        <img src="cookies.jpeg">
+        <h3>Cookies</h3>
+        <p class="price">₹50 / 100 g</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Cookies',50)">
+
+            Add to Cart
+
+        </button>
+
+       
+    </div>
+
+     <div class="product">
+        <img src="bananachips.jpeg">
+        <h3>Banana Chips</h3>
+        <p class="price">₹40 / 100 g</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Banana Chips',40)">
+
+            Add to Cart
+
+        </button>
+
+        
+    </div>
+
+     <div class="product">
+        <img src="balls.jpeg">
+        <h3>Cheese Balls</h3>
+        <p class="price">₹30 / 50 g</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Cheese Balls',30)">
+
+            Add to Cart
+
+        </button>
+
+        
+    </div>
+    
+     <div class="product">
+        <img src="chana.jpeg">
+        <h3>Roasted Chana</h3>
+        <p class="price">₹30 / 100 g</p>
+       <button
+            class="cart-btn"
+            onclick="addToCart('Roasted Chana',30)">
+
+            Add to Cart
+
+        </button>
+
+        
+
+    </div>
+
+     <div class="product">
+        <img src="sandwish.jpeg">
+        <h3>Sandwich Crackers</h3>
+        <p class="price">₹40 / 100 g</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Sandwich Crackers',40)">
+
+            Add to Cart
+
+        </button>
+
+       
+    </div>
+
+
+</div>
+
+<script>
+
+/* ADD TO CART */
+
+function addToCart(name,price){
+
+
+
+let cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
+
+
+
+
+         let existing =
+        cart.find(function(item) {
+            return item.name === name;
+        });
+
+
+    if (existing) {
+
+        existing.quantity++;
+
+    }
+
+    else {
+
+        cart.push({
+
+            name: name,
+            price: price,
+            quantity: 1
+
+        });
+
+    }
+
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart));
+
+    
+
+
+   alert(name + "  added to cart successfully !");
+
+   window.location.href="cart.html";
+ }
+
+
+
+
+
+
+/* ORDER NOW */
+
+function orderNow(name, price) {
+
+    addToCart(name, price);
+
+    window.location.href =
+        "Cart.html";
+
+}
+
+
+
+/* CART COUNT */
+
+function updateCartCount() {
+
+    let count = 0;
+
+
+    cart.forEach(function(item) {
+
+        count += item.quantity;
+
+    });
+
+
+    document.getElementById("cartCount").innerText =
+        count;
+
+}
+
+
+updateCartCount();
+
+</script>
+
+
+</body>
+</html>
