@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f5f5f5;
+}
+
+h2 {
+    text-align: center;
+    color: #5A1F2B;
+    font-size:35px;
+}
+
+.products {
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    justify-content: center;
+    gap: 25px;
+    padding: 20px;
+    margin-left:60px;
+    
+}
+
+.product {
+    width: 180px;
+    background: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px #bbb;
+}
+
+.product img {
+    width: 150px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product h3 {
+    color: #5C4033;
+}
+.price{
+  color:#7A263A;
+  font-weight:bold;
+}
+/* BUTTONS */
+
+        button {
+            border: none;
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 5px;
+            font-weight: bold;
+        }
+
+        .cart-btn {
+            background: #5a3744;
+            color: white;
+        }
+
+        
+        button:hover {
+            opacity: 0.85;
+        }
+</style>
+
+</head>
+
+<body>
+
+<h2>🥛 Dairy Products</h2>
+
+<div class="products">
+
+    <div class="product">
+        <img src="milk.jpeg">
+        <h3>Fresh Milk</h3>
+        <p class ="price">₹60 / 1 L</p>
+         <button
+            class="cart-btn"
+            onclick="addToCart('Fresh Milk',60)">
+
+            Add to Cart
+
+        </button>
+
+        </div>
+
+    <div class="product">
+        <img src="curd.jpeg">
+        <h3>Curd</h3>
+        <p class ="price">₹40 / 500 g</p>
+         <button
+            class="cart-btn"
+            onclick="addToCart('Curd',40)">
+
+            Add to Cart
+
+        </button>
+
+            </div>
+
+     <div class="product">
+        <img src="butter.jpeg">
+        <h3>Butter</h3>
+        <p class ="price">₹60 / 100 g</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Butter',60)">
+
+            Add to Cart
+
+        </button>
+
+            </div>
+ 
+ 
+  <div class="product">
+        <img src="paneer.jpeg">
+        <h3>Paneer</h3>
+        <p class ="price">₹90 / 200 g</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Paneer',90)">
+
+            Add to Cart
+
+        </button>
+
+            </div>
+
+
+    <div class="product">
+        <img src="ghee.jpeg">
+        <h3>Ghee</h3>
+        <p class ="price">₹350 / 500 ml</p>
+         <button
+            class="cart-btn"
+            onclick="addToCart('Ghee',350)">
+
+            Add to Cart
+
+        </button>
+
+            </div>
+
+
+    <div class="product">
+        <img src="cream.jpeg">
+        <h3>Fresh Cream</h3>
+        <p class ="price">₹70 / 250 ml</p>
+         <button
+            class="cart-btn"
+            onclick="addToCart('Fresh Cream',70)">
+
+            Add to Cart
+
+        </button>
+
+            </div>
+
+
+     <div class="product">
+        <img src="lassi.jpeg">
+        <h3>Lassi</h3>
+        <p class ="price">₹30 / 200 ml</p>
+         <button
+            class="cart-btn"
+            onclick="addToCart('Lassi',30)">
+
+            Add to Cart
+
+        </button>
+
+            </div>
+
+     
+     <div class="product">
+        <img src="yogurt.jpeg">
+        <h3>Yogurt</h3>
+        <p class ="price">₹50 / 400 g</p>
+         <button
+            class="cart-btn"
+            onclick="addToCart('Yogurt',50)">
+
+            Add to Cart
+
+        </button>
+
+            </div>
+
+
+     <div class="product">
+        <img src="milk2.jpeg">
+        <h3>Milk Powder</h3>
+        <p class ="price">₹250 / 500 g</p>
+        <button
+            class="cart-btn"
+            onclick="addToCart('Milk Powder',250)">
+
+            Add to Cart
+
+        </button>
+
+        
+</div>
+
+
+
+    <div class="product">
+        <img src="badam.jpeg">
+        <h3>Flavoured Milk</h3>
+        <p class ="price">₹35 / 200 ml</p>
+         <button
+            class="cart-btn"
+            onclick="addToCart('Flavoured Milk',35)">
+
+            Add to Cart
+
+        </button>
+
+            </div>
+
+</div>
+
+
+<script>
+
+/* ADD TO CART */
+
+function addToCart(name,price){
+
+
+
+let cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
+
+
+
+
+         let existing =
+        cart.find(function(item) {
+            return item.name === name;
+        });
+
+
+    if (existing) {
+
+        existing.quantity++;
+
+    }
+
+    else {
+
+        cart.push({
+
+            name: name,
+            price: price,
+            quantity: 1
+
+        });
+
+    }
+
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart));
+
+    
+
+
+   alert(name + "  added to cart successfully !");
+
+   window.location.href="cart.html";
+ }
+
+
+
+
+
+
+
+
+/* CART COUNT */
+
+function updateCartCount() {
+
+    let count = 0;
+
+
+    cart.forEach(function(item) {
+
+        count += item.quantity;
+
+    });
+
+
+    document.getElementById("cartCount").innerText =
+        count;
+
+}
+
+
+updateCartCount();
+
+</script>
+
+
+
+</body>
+</html>

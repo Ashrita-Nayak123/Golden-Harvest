@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Golden Harvest - Home</title>
+
+<style>
+
+/* BASIC */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fffaf0;
+    color: #333;
+}
+
+
+#hp  {
+    width: 70%;
+    height: 400px;
+    object-fit: cover;
+    display:block;
+    margin:0 auto;
+    margin-top:50px;
+    border-radius: 15px;
+}
+.hero {
+ 
+    text-align: center;
+    padding: 0 10px;
+      margin:20px;
+}
+
+.hero h2 {
+    font-size: 30px;
+    color: #5d4037;
+    margin: 5px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #6d4c41;
+    margin: 10px;
+}
+
+.shop-button {
+    display: inline-block;
+    background-color: #7A263A;
+    color: white;
+    text-decoration: none;
+    padding: 9px 22px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.shop-button:hover {
+    background-color: #4A3025;
+}
+
+
+/* CATEGORY TITLE */
+
+.category-title {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.category-title h2 {
+    color: #5a3744;
+    font-size: 30px;
+}
+
+
+/* CATEGORY BOXES */
+
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+
+.category {
+    width: 155px;
+    height: 95px;
+    background-color: white;
+    border-radius: 8px;
+    text-align: center;
+    padding: 12px 5px;
+    box-shadow: 0 2px 7px #d5d5d5;
+    border: 1px solid #eeeeee;
+}
+
+.category:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px #cccccc;
+}
+
+.category h3 {
+    margin: 3px;
+    color: #6d4c41;
+    font-size: 15px;
+}
+
+.category p {
+    margin: 4px;
+    color: #888;
+    font-size: 10px;
+}
+
+
+/* FEATURED TITLE */
+
+.featured-title {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.featured-title h2 {
+    color: #5d4037;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.featured-title p {
+    color: #777;
+    font-size: 17px;
+}
+
+
+/* PRODUCTS */
+
+.products {
+    width: 70%;
+    margin: 10px auto 30px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+
+/* PRODUCT CARD */
+
+.product {
+    background-color: white;
+    border-radius: 20px;
+    padding: 15px;
+    text-align: center;
+
+    box-shadow:
+        0 2px 8px #d5d5d5;
+
+    border: 1px solid #eeeeee;
+}
+
+.product:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 5px 12px #c8c8c8;
+}
+
+
+/* PRODUCT IMAGE */
+
+.product img {
+    width: 200px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
+/* PRODUCT NAME */
+
+.product h3 {
+    color: #5d4037;
+    font-size: 17px;
+    margin: 8px 0;
+}
+
+
+/* PRICE */
+
+.price {
+    color: #7A263A;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 7px;
+}
+
+
+/* BUTTONS */
+
+        button {
+            border: none;
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 5px;
+            font-weight: bold;
+        }
+
+        .cart-btn {
+            background: #5a3744;
+            color: white;
+        }
+
+                button:hover {
+            opacity: 0.85;
+        }
+
+
+
+/* FOOTER */
+
+.footer {
+    background-color: #5a3744;
+    color: black;
+    text-align: center;
+    padding: 14px;
+}
+
+.footer h3 {
+    margin: 3px;
+    font-size: 15px;
+}
+
+.footer p {
+    margin: 4px;
+    font-size: 11px;
+}
+
+
+/* MOBILE */
+
+@media screen and (max-width: 700px) {
+
+    .products {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .navbar a {
+        margin: 0 7px;
+        font-size: 11px;
+    }
+
+    .header h1 {
+        font-size: 21px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+
+
+
+
+<!-- ================= HERO ================= -->
+
+    <img src="C:\Users\Kamadhenu BCA\Desktop\Gwebsite\hphoto.jpeg"  alt="Fresh Grocery" id="hp">
+
+    <div class="hero">
+    <h2>Welcome to Golden Harvest!</h2>
+
+    <p>
+        Shop fresh and quality groceries at affordable prices.
+    </p>
+
+    <a href="#products" class="shop-button">
+        Shop Now
+    </a>
+
+
+</div>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<div class="category-title">
+
+    <h2>Shop By Category</h2>
+
+</div>
+
+
+<div class="categories">
+
+
+    <div class="category">
+
+        <h3>🧂 Spices</h3>
+	<a href="spices.html" target="content">
+        <p>Fresh Spices</p>
+         </a>
+    </div>
+
+
+    <div class="category">
+
+        <h3>🧴 Personal Items</h3>
+        <a href="personal.html" target="content">
+        <p>Personal Care </p>
+        </a>
+    </div>
+
+
+    <div class="category">
+
+        <h3>🍪 Snacks</h3>
+         <a href="snacks.html" target="content">
+
+        <p>Tasty Snacks</p>
+    	</a>
+    </div>
+
+
+    <div class="category">
+
+        <h3>🥛 Dairy</h3>
+
+        <a href="dairy.html" target="content">
+
+        <p>Milk & Dairy Products</p>
+         </a>
+
+    </div>
+
+
+    <div class="category">
+
+        <h3>🍚 Rice & Grains</h3>
+         <a href="rice.html" target="content">
+        <p>Quality Grains</p>
+        </a>
+
+    </div>
+
+
+    <div class="category">
+
+        <h3>🍞 Packaged Foods</h3>
+        <a href="packaged.html" target="content">
+        <p>Quality Foods</p>
+        </a>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- ================= FEATURED PRODUCTS ================= -->
+
+<div class="featured-title">
+
+    <h2>Featured Products</h2>
+
+    <p>Fresh and quality products for your everyday needs</p>
+
+</div>
+
+
+
+<div class="products" id="products">
+
+
+    <!-- PRODUCT 1 -->
+
+    <div class="product">
+
+        <img
+        src="https://images.unsplash.com/photo-1586201375761-83865001e31c"
+        alt="Rice">
+
+        <h3>🍚 Premium Rice</h3>
+
+        <p class="price">₹60 / kg</p>
+
+         <button
+            class="cart-btn"
+            onclick="addToCart('premium Rice',60)">
+
+            Add to Cart
+
+        </button>
+
+        
+    </div>
+
+
+
+    <!-- PRODUCT 2 -->
+
+    <div class="product">
+
+        <img
+        src="redchilli.jpeg"alt="spices">
+
+        <h3>🌶️ Red Chilli </h3>
+
+        <p class="price">₹70 / 200 g</p>
+
+        <button
+            class="cart-btn"
+            onclick="addToCart('Red Chilli' ,70)">
+
+            Add to Cart
+
+        </button>
+
+        
+
+    </div>
+
+
+
+    <!-- PRODUCT 3 -->
+
+    <div class="product">
+
+        <img
+        src="milk.jpeg"
+        alt="Milk">
+
+        <h3>🥛 Fresh Milk</h3>
+
+        <p class="price">₹30 / litre</p>
+
+         <button
+            class="cart-btn"
+            onclick="addToCart('Milk',30)">
+
+            Add to Cart
+
+        </button>
+
+            </div>
+
+
+
+    <!-- PRODUCT 4 -->
+
+    <div class="product">
+
+        <img
+        src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35"
+        alt="Biscuits">
+
+        <h3>🍪 Biscuits</h3>
+
+        <p class="price">₹50 / pack</p>
+
+         <button
+            class="cart-btn"
+            onclick="addToCart('Biscuits',50)">
+
+            Add to Cart
+
+        </button>
+
+            </div>
+
+</div>
+
+
+
+<!-- ================= MORE PRODUCTS ================= -->
+
+<div class="products">
+
+
+    <!-- PRODUCT 5 -->
+
+    <div class="product">
+
+        <img
+        src="https://images.unsplash.com/photo-1509440159596-0249088772ff"
+        alt="Bread">
+
+        <h3>🍞 Fresh Bread</h3>
+
+        <p class="price">₹75 / pack</p>
+
+         <button
+            class="cart-btn"
+            onclick="addToCart('Bread',75)">
+
+            Add to Cart
+
+        </button>
+
+            </div>
+
+
+
+    <!-- PRODUCT 6 -->
+
+    <div class="product">
+
+        <img
+        src="shampoo.jpeg"  alt="shampoo">
+
+        <h3>🧴 Shampoos</h3>
+
+        <p class="price">₹120 / 180 ml</p>
+
+         <button
+            class="cart-btn"
+            onclick="addToCart('Shampoo',120)">
+
+            Add to Cart
+
+        </button>
+
+        
+    </div>
+
+
+
+    <!-- PRODUCT 7 -->
+
+    <div class="product">
+
+        <img
+        src="honey.jpeg"  alt="packed">
+
+        <h3>🍯 Honey </h3>
+ 
+        <p class="price">₹120 / 250 g</p>
+
+         <button
+            class="cart-btn"
+            onclick="addToCart('Honey',120)">
+
+            Add to Cart
+
+        </button>
+
+            </div>
+
+
+
+    <!-- PRODUCT 8 -->
+
+    <div class="product">
+
+        <img
+        src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5"
+        alt="Cooking Oil">
+
+        <h3>🫗 Cooking Oil</h3>
+
+        <p class="price">₹150 / litre</p>
+
+         <button
+            class="cart-btn"
+            onclick="addToCart('Cooking oil',150)">
+
+            Add to Cart
+
+        </button>
+
+        
+    </div>
+
+</div>
+
+<script>
+
+/* GET CART */
+
+
+/* ADD TO CART */
+
+function addToCart(name,price){
+
+
+
+let cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
+
+
+
+
+         let existing =
+        cart.find(function(item) {
+            return item.name === name;
+        });
+
+
+    if (existing) {
+
+        existing.quantity++;
+
+    }
+
+    else {
+
+        cart.push({
+
+            name: name,
+            price: price,
+            quantity: 1
+
+        });
+
+    }
+
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart));
+
+    
+
+
+   alert(name + "  added to cart successfully !");
+
+   window.location.href="cart33.html";
+ }
+
+
+
+
+
+/* CART COUNT */
+
+function updateCartCount() {
+
+    let count = 0;
+
+
+    cart.forEach(function(item) {
+
+        count += item.quantity;
+
+    });
+
+
+    document.getElementById("cartCount").innerText =
+        count;
+
+}
+
+
+updateCartCount();
+
+</script>
+
+
+<!-- ================= FOOTER ================= -->
+
+<div class="footer">
+
+    <h3>GOLDEN HARVEST</h3>
+
+    <p>Fresh • Healthy • Affordable</p>
+
+    <p>© 2026 Golden Harvest</p>
+
+</div>
+
+
+</body>
+</html>
