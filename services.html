@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Harvest - Services</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            background: #fffaf3;
+            color: #4b3621;
+        }
+
+        /* ================= SERVICES ================= */
+
+        .services {
+            padding: 60px 8%;
+            text-align: center;
+            background: #fffaf3;
+            min-height: 80vh;
+        }
+
+        .services h2 {
+            font-size: 32px;
+            color: #6d4526;
+            margin-bottom: 10px;
+        }
+
+        .service-intro {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 35px;
+        }
+
+        .service-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .service-box {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.10);
+            transition: 0.3s;
+        }
+
+        .service-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .service-box h3 {
+            color: #6d4526;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .service-box p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        .footer {
+            background: #5a3744;
+            color:black;
+            text-align: center;
+            padding: 22px 10px;
+        }
+
+        .footer h3 {
+            font-size: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .footer .tagline {
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .footer .copyright {
+            font-size: 12px;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+
+            .service-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 550px) {
+
+            .service-container {
+                grid-template-columns: 1fr;
+            }
+
+            .services {
+                padding: 40px 5%;
+            }
+
+            .services h2 {
+                font-size: 28px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <!-- ================= SERVICES SECTION ================= -->
+
+    <section class="services" id="services">
+
+        <h2>Our Services</h2>
+
+        <p class="service-intro">
+            We make your grocery shopping easy, convenient and reliable.
+        </p>
+
+
+        <div class="service-container">
+
+
+            <!-- Service 1 -->
+
+            <div class="service-box">
+
+                <div class="service-icon">🛒</div>
+
+                <h3>Wide Range of Products</h3>
+
+                <p>
+                    Choose from fresh groceries, packaged foods,
+                    dairy products, personal care items, snacks and more.
+                </p>
+
+            </div>
+
+
+            <!-- Service 2 -->
+
+            <div class="service-box">
+
+                <div class="service-icon">🚚</div>
+
+                <h3>Home Delivery</h3>
+
+                <p>
+                    Get your grocery items delivered conveniently
+                    to your doorstep.
+                </p>
+
+            </div>
+
+
+            <!-- Service 3 -->
+
+            <div class="service-box">
+
+                <div class="service-icon">💳</div>
+
+                <h3>Easy Payment</h3>
+
+                <p>
+                    Enjoy a simple and convenient shopping
+                    experience with easy payment options.
+                </p>
+
+            </div>
+
+
+            <!-- Service 4 -->
+
+            <div class="service-box">
+
+                <div class="service-icon">⭐</div>
+
+                <h3>Quality Products</h3>
+
+                <p>
+                    We provide carefully selected products
+                    with quality and freshness in mind.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <h3>GOLDEN HARVEST</h3>
+
+        <p class="tagline">
+            Fresh • Healthy • Affordable
+        </p>
+
+        <p class="copyright">
+            © 2026 Golden Harvest
+        </p>
+
+    </footer>
+
+
+</body>
+</html>
